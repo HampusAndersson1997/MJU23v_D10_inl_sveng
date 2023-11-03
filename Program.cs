@@ -16,7 +16,7 @@
                 this.word_swe = words[0]; this.word_eng = words[1];
             }
         }
-        static void Main(string[] args)
+        static void Main(string[] args) //FIXME 1 Lägg till commandot "hjälp" så att man kan veta vad man kan fråga efter
         {
             string defaultFile = "..\\..\\..\\dict\\sweeng.lis";
             Console.WriteLine("Welcome to the dictionary app!");
