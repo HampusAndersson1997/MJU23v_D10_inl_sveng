@@ -103,6 +103,7 @@
                     }
                     else if (argument.Length == 1)
                     {
+                        //TODO 13 gör en metod
                         Console.WriteLine("Write word in Swedish: ");
                         string s = Console.ReadLine();
                         Console.Write("Write word in English: ");
