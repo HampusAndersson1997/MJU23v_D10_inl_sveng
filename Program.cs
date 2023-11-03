@@ -151,6 +151,7 @@
                 }
             } //NYI 17 lägg in exceptions
             //NYI 18 lägg in FileNotFoundException
+            //NYI 18 lägg in try-catch
             while (true);
         } 
     }
