@@ -91,6 +91,7 @@
                 {
                     if (argument.Length == 3)
                     {
+                        //TODO 12 gör en metod
                         int index = -1;
                         for (int i = 0; i < dictionary.Count; i++) //TODO 11 döp om alla i
                         { 
