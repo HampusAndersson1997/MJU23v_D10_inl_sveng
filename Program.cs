@@ -40,6 +40,7 @@
                             string line = sr.ReadLine();
                             while (line != null)
                             {
+                                //TODO 5 gör en metod
                                 SweEngGloss gloss = new SweEngGloss(line);
                                 dictionary.Add(gloss);
                                 line = sr.ReadLine();
