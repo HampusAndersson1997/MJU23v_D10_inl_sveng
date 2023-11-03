@@ -22,7 +22,7 @@
             Console.WriteLine("Welcome to the dictionary app!");
             do
             {
-                Console.Write("> ");
+                Console.Write("> "); //TODO 2 gör till en metod
                 string[] argument = Console.ReadLine().Split();
                 string command = argument[0];
                 if (command == "quit")
