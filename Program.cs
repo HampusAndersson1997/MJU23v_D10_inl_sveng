@@ -135,6 +135,7 @@
                     {
                         Console.WriteLine("Write word to be translated: ");
                         string s = Console.ReadLine();
+                        //TODO 15 lägg in metod från TODO 14
                         foreach (SweEngGloss gloss in dictionary)
                         {
                             if (gloss.word_swe == s)
