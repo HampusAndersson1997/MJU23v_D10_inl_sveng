@@ -81,7 +81,7 @@
                     {
                         //TODO 8 gör en metod
                         Console.WriteLine("Write word in Swedish: ");
-                        string s = Console.ReadLine();
+                        string s = Console.ReadLine(); //TODO 9 döp om alla s
                         Console.Write("Write word in English: ");
                         string e = Console.ReadLine();
                         dictionary.Add(new SweEngGloss(s, e));
@@ -92,7 +92,8 @@
                     if (argument.Length == 3)
                     {
                         int index = -1;
-                        for (int i = 0; i < dictionary.Count; i++) {
+                        for (int i = 0; i < dictionary.Count; i++) 
+                        { 
                             SweEngGloss gloss = dictionary[i];
                             if (gloss.word_swe == argument[1] && gloss.word_eng == argument[2])
                                 index = i;
