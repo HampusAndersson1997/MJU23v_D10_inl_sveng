@@ -154,5 +154,5 @@
             //NYI 18 lägg in try-catch
             while (true);
         } //TODO 19 lägg till static metoder
-    }
+    } // NYI 20 lägg till static metoder
 }
