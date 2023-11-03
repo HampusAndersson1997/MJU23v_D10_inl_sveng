@@ -18,7 +18,7 @@
         }
         static void Main(string[] args) //FIXME 1 Lägg till commandot "hjälp" så att man kan veta vad man kan fråga efter
         {
-            string defaultFile = "..\\..\\..\\dict\\sweeng.lis";
+            string defaultFile = "..\\..\\..\\dict\\sweeng.lis"; //TODO Lägg till path
             Console.WriteLine("Welcome to the dictionary app!");
             do
             {
