@@ -83,7 +83,7 @@
                         Console.WriteLine("Write word in Swedish: ");
                         string s = Console.ReadLine(); //TODO 9 döp om alla s
                         Console.Write("Write word in English: ");
-                        string e = Console.ReadLine();
+                        string e = Console.ReadLine(); //TODO 10 döp om alla e
                         dictionary.Add(new SweEngGloss(s, e));
                     }
                 }
