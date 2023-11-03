@@ -92,7 +92,7 @@
                     if (argument.Length == 3)
                     {
                         int index = -1;
-                        for (int i = 0; i < dictionary.Count; i++) 
+                        for (int i = 0; i < dictionary.Count; i++) //TODO 11 döp om alla i
                         { 
                             SweEngGloss gloss = dictionary[i];
                             if (gloss.word_swe == argument[1] && gloss.word_eng == argument[2])
