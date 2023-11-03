@@ -122,7 +122,8 @@
                 {
                     if (argument.Length == 2)
                     {
-                        foreach(SweEngGloss gloss in dictionary)
+                        //TODO 14 gör en metod
+                        foreach (SweEngGloss gloss in dictionary)
                         {
                             if (gloss.word_swe == argument[1])
                                 Console.WriteLine($"English for {gloss.word_swe} is {gloss.word_eng}");
