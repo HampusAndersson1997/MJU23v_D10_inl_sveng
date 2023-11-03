@@ -150,7 +150,7 @@
                     Console.WriteLine($"Unknown command: '{command}'");
                 }
             } //NYI 17 lägg in exceptions
-            //NYI 18 lägg in exceptions
+            //NYI 18 lägg in FileNotFoundException
             while (true);
         } 
     }
