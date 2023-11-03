@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+        //NYI 21 gör en Print() metod
         static List<SweEngGloss> dictionary;
         class SweEngGloss
         {
