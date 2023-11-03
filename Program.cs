@@ -51,12 +51,12 @@
                     {
                         using (StreamReader sr = new StreamReader(defaultFile))
                         {
-                            // TODO lägg in metod från todo 4
+                            // TODO 6 lägg in metod från todo 4
                             dictionary = new List<SweEngGloss>(); // Empty it!
                             string line = sr.ReadLine();
                             while (line != null)
                             {
-                                // TODO lägg in metod från TODO 5
+                                // TODO 7 lägg in metod från TODO 5
                                 SweEngGloss gloss = new SweEngGloss(line);
                                 dictionary.Add(gloss);
                                 line = sr.ReadLine();
@@ -79,6 +79,7 @@
                     }
                     else if(argument.Length == 1)
                     {
+                        //TODO 8 gör en metod
                         Console.WriteLine("Write word in Swedish: ");
                         string s = Console.ReadLine();
                         Console.Write("Write word in English: ");
