@@ -35,6 +35,7 @@
                     {
                         using (StreamReader sr = new StreamReader(argument[1]))
                         {
+                            //TODO 4 gör en metod
                             dictionary = new List<SweEngGloss>(); // Empty it!
                             string line = sr.ReadLine();
                             while (line != null)
