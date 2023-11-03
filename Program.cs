@@ -51,6 +51,7 @@
                     {
                         using (StreamReader sr = new StreamReader(defaultFile))
                         {
+                            // TODO lägg in metod från todo 4
                             dictionary = new List<SweEngGloss>(); // Empty it!
                             string line = sr.ReadLine();
                             while (line != null)
