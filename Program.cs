@@ -107,30 +107,23 @@
                 }
                 else if (command == "translate")
                 {
-                    if (argument.Length == 2)
+                    string word = "";
+                    if (argument.Length == 2) 
                     {
-                        //TODO 14 gör en metod
-                        foreach (SweEngGloss gloss in dictionary)
-                        {
-                            if (gloss.word_swe == argument[1])
-                                Console.WriteLine($"English for {gloss.word_swe} is {gloss.word_eng}");
-                            if (gloss.word_eng == argument[1])
-                                Console.WriteLine($"Swedish for {gloss.word_eng} is {gloss.word_swe}");
-                        }
+                        word = argument[1];
                     }
-                    else if (argument.Length == 1)
+                    else if (argument.Length == 1) 
                     {
                         Console.WriteLine("Write word to be translated: ");
-                        string str = Console.ReadLine();
-                        //TODO 15 lägg in metod från TODO 14
-                        foreach (SweEngGloss gloss in dictionary)
-                        {
-                            if (gloss.word_swe == str)
-                                Console.WriteLine($"English for {gloss.word_swe} is {gloss.word_eng}");
-                            if (gloss.word_eng == str)
-                                Console.WriteLine($"Swedish for {gloss.word_eng} is {gloss.word_swe}");
-                        }
+                        word = Console.ReadLine();
                     }
+                    foreach (SweEngGloss gloss in dictionary)
+                    {
+                        if (gloss.word_swe == word)
+                            Console.WriteLine($"English for {gloss.word_swe} is {gloss.word_eng}");
+                        if (gloss.word_eng == word)
+                            Console.WriteLine($"Swedish for {gloss.word_eng} is {gloss.word_swe}");
+                    }                    
                 }
                 else
                 {
