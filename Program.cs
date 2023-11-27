@@ -113,7 +113,7 @@
                         for (int i = 0; i < dictionary.Count; i++)
                         {
                             SweEngGloss gloss = dictionary[i];
-                            if (gloss.word_swe == s && gloss.word_eng == eng)
+                            if (gloss.word_swe == swe && gloss.word_eng == eng)
                                 index = i;
                         }
                         dictionary.RemoveAt(index);
@@ -135,13 +135,13 @@
                     else if (argument.Length == 1)
                     {
                         Console.WriteLine("Write word to be translated: ");
-                        string string = Console.ReadLine();
+                        string str = Console.ReadLine();
                         //TODO 15 lägg in metod från TODO 14
                         foreach (SweEngGloss gloss in dictionary)
                         {
-                            if (gloss.word_swe == string)
+                            if (gloss.word_swe == str)
                                 Console.WriteLine($"English for {gloss.word_swe} is {gloss.word_eng}");
-                            if (gloss.word_eng == string)
+                            if (gloss.word_eng == str)
                                 Console.WriteLine($"Swedish for {gloss.word_eng} is {gloss.word_swe}");
                         }
                     }
