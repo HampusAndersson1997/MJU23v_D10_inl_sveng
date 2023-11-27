@@ -32,38 +32,24 @@
                 }
                 else if (command == "load")
                 {
-                    if(argument.Length == 2)
+                    string path = defaultFile;
+                    if (argument.Length == 2)
                     {
-                        using (StreamReader sr = new StreamReader(argument[1]))
-                        {
-                            //TODO 4 gör en metod
-                            dictionary = new List<SweEngGloss>(); // Empty it!
-                            string line = sr.ReadLine();
-                            while (line != null)
-                            {
-                                //TODO 5 gör en metod
-                                SweEngGloss gloss = new SweEngGloss(line);
-                                dictionary.Add(gloss);
-                                line = sr.ReadLine();
-                            }
-                        }
-                    }
-                    else if(argument.Length == 1)
+                        path = argument[1];
+                    }                    
+                    using (StreamReader sr = new StreamReader(path)) //FIXME: exception error, file not found exception
                     {
-                        using (StreamReader sr = new StreamReader(defaultFile))
+                        //TODO 4 gör en metod
+                        dictionary = new List<SweEngGloss>(); // Empty it!
+                        string line = sr.ReadLine();
+                        while (line != null)
                         {
-                            // TODO 6 lägg in metod från todo 4
-                            dictionary = new List<SweEngGloss>(); // Empty it!
-                            string line = sr.ReadLine();
-                            while (line != null)
-                            {
-                                // TODO 7 lägg in metod från TODO 5
-                                SweEngGloss gloss = new SweEngGloss(line);
-                                dictionary.Add(gloss);
-                                line = sr.ReadLine();
-                            }
+                            //TODO 5 gör en metod
+                            SweEngGloss gloss = new SweEngGloss(line);
+                            dictionary.Add(gloss);
+                            line = sr.ReadLine();
                         }
-                    }
+                    }                                       
                 }
                 else if (command == "list")
                 {
