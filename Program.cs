@@ -36,7 +36,7 @@
                     if (argument.Length == 2)
                     {
                         path = argument[1];
-                    }                    
+                    }
                     using (StreamReader sr = new StreamReader(path)) //FIXME: exception error, file not found exception
                     {
                         //TODO 4 gör en metod
@@ -49,11 +49,11 @@
                             dictionary.Add(gloss);
                             line = sr.ReadLine();
                         }
-                    }                                       
+                    }
                 }
                 else if (command == "list")
                 {
-                    foreach(SweEngGloss gloss in dictionary)
+                    foreach (SweEngGloss gloss in dictionary)
                     {
                         Console.WriteLine($"{gloss.word_swe,-10}  - {gloss.word_eng,-10}");
                     }
@@ -64,13 +64,13 @@
                     {
                         dictionary.Add(new SweEngGloss(argument[1], argument[2]));
                     }
-                    else if(argument.Length == 1)
+                    else if (argument.Length == 1)
                     {
                         //TODO 8 gör en metod
                         Console.WriteLine("Write word in Swedish: ");
-                        string swe = Console.ReadLine(); 
+                        string swe = Console.ReadLine();
                         Console.Write("Write word in English: ");
-                        string eng = Console.ReadLine(); 
+                        string eng = Console.ReadLine();
                         dictionary.Add(new SweEngGloss(swe, eng));
                     }
                 }
@@ -81,7 +81,7 @@
                         //TODO 12 gör en metod
                         int index = -1;
                         for (int i = 0; i < dictionary.Count; i++) //TODO 11 döp om alla i
-                        { 
+                        {
                             SweEngGloss gloss = dictionary[i];
                             if (gloss.word_swe == argument[1] && gloss.word_eng == argument[2])
                                 index = i;
@@ -107,23 +107,7 @@
                 }
                 else if (command == "translate")
                 {
-                    string word = "";
-                    if (argument.Length == 2) 
-                    {
-                        word = argument[1];
-                    }
-                    else if (argument.Length == 1) 
-                    {
-                        Console.WriteLine("Write word to be translated: ");
-                        word = Console.ReadLine();
-                    }
-                    foreach (SweEngGloss gloss in dictionary)
-                    {
-                        if (gloss.word_swe == word)
-                            Console.WriteLine($"English for {gloss.word_swe} is {gloss.word_eng}");
-                        if (gloss.word_eng == word)
-                            Console.WriteLine($"Swedish for {gloss.word_eng} is {gloss.word_swe}");
-                    }                    
+                    Translate(argument);                    
                 }
                 else
                 {
@@ -133,6 +117,29 @@
             //NYI 18 lägg in FileNotFoundException
             //NYI 18 lägg in try-catch
             while (true);
-        } //TODO 19 lägg till static metoder
+        }
+        
+        public static void Translate(string[] argument)
+        {
+            string word = "";
+            if (argument.Length == 2) 
+            {
+                word = argument[1];
+            }
+            else if (argument.Length == 1) 
+            {
+                Console.WriteLine("Write word to be translated: ");
+                word = Console.ReadLine();
+            }
+            foreach (SweEngGloss gloss in dictionary)
+            {
+                if (gloss.word_swe == word)
+                    Console.WriteLine($"English for {gloss.word_swe} is {gloss.word_eng}");
+                if (gloss.word_eng == word)
+                    Console.WriteLine($"Swedish for {gloss.word_eng} is {gloss.word_swe}");
+            }                    
+        }
+            
+            //TODO 19 lägg till static metoder
     } // NYI 20 lägg till static metoder
 }
