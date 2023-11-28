@@ -85,19 +85,23 @@
         }
         public static void New(string[] argument)
         {
+            string swe = "";
+            string eng = "";
+
             if (argument.Length == 3)
             {
-                dictionary.Add(new SweEngGloss(argument[1], argument[2]));
+                swe = argument[1]; 
+                eng = argument[2];
             }
             else if (argument.Length == 1)
             {
                 //TODO 8 gör en metod
                 Console.WriteLine("Write word in Swedish: ");
-                string swe = Console.ReadLine();
+                swe = Console.ReadLine();
                 Console.Write("Write word in English: ");
-                string eng = Console.ReadLine();
-                dictionary.Add(new SweEngGloss(swe, eng));
+                eng = Console.ReadLine();                
             }
+            dictionary.Add(new SweEngGloss(swe, eng));
         }
         public static void List() 
         {
@@ -106,7 +110,7 @@
                 Console.WriteLine($"{gloss.word_swe,-10}  - {gloss.word_eng,-10}");
             }
         }
-        public static void Delete(string[] argument)
+        public static void Delete(string[] argument) // Här går det att faktorera
         {
             if (argument.Length == 3)
             {
