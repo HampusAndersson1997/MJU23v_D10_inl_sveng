@@ -76,34 +76,7 @@
                 }
                 else if (command == "delete")
                 {
-                    if (argument.Length == 3)
-                    {
-                        //TODO 12 gör en metod
-                        int index = -1;
-                        for (int i = 0; i < dictionary.Count; i++) //TODO 11 döp om alla i
-                        {
-                            SweEngGloss gloss = dictionary[i];
-                            if (gloss.word_swe == argument[1] && gloss.word_eng == argument[2])
-                                index = i;
-                        }
-                        dictionary.RemoveAt(index);
-                    }
-                    else if (argument.Length == 1)
-                    {
-                        //TODO 13 gör en metod
-                        Console.WriteLine("Write word in Swedish: ");
-                        string swe = Console.ReadLine();
-                        Console.Write("Write word in English: ");
-                        string eng = Console.ReadLine();
-                        int index = -1;
-                        for (int i = 0; i < dictionary.Count; i++)
-                        {
-                            SweEngGloss gloss = dictionary[i];
-                            if (gloss.word_swe == swe && gloss.word_eng == eng)
-                                index = i;
-                        }
-                        dictionary.RemoveAt(index);
-                    }
+                    Delete(argument);                    
                 }
                 else if (command == "translate")
                 {
@@ -118,7 +91,37 @@
             //NYI 18 lägg in try-catch
             while (true);
         }
-        
+        public static void Delete(string[] argument)
+        {
+            if (argument.Length == 3)
+            {
+                //TODO 12 gör en metod
+                int index = -1;
+                for (int i = 0; i < dictionary.Count; i++) //TODO 11 döp om alla i
+                {
+                    SweEngGloss gloss = dictionary[i];
+                    if (gloss.word_swe == argument[1] && gloss.word_eng == argument[2])
+                        index = i;
+                }
+                dictionary.RemoveAt(index);
+            }
+            else if (argument.Length == 1)
+            {
+                //TODO 13 gör en metod
+                Console.WriteLine("Write word in Swedish: ");
+                string swe = Console.ReadLine();
+                Console.Write("Write word in English: ");
+                string eng = Console.ReadLine();
+                int index = -1;
+                for (int i = 0; i < dictionary.Count; i++)
+                {
+                    SweEngGloss gloss = dictionary[i];
+                    if (gloss.word_swe == swe && gloss.word_eng == eng)
+                        index = i;
+                }
+                dictionary.RemoveAt(index);
+            }
+        }
         public static void Translate(string[] argument)
         {
             string word = "";
