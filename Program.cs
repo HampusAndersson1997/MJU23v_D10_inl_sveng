@@ -57,19 +57,7 @@
                 }
                 else if (command == "new")
                 {
-                    if (argument.Length == 3)
-                    {
-                        dictionary.Add(new SweEngGloss(argument[1], argument[2]));
-                    }
-                    else if (argument.Length == 1)
-                    {
-                        //TODO 8 gör en metod
-                        Console.WriteLine("Write word in Swedish: ");
-                        string swe = Console.ReadLine();
-                        Console.Write("Write word in English: ");
-                        string eng = Console.ReadLine();
-                        dictionary.Add(new SweEngGloss(swe, eng));
-                    }
+                    New(argument);
                 }
                 else if (command == "delete")
                 {
@@ -87,6 +75,22 @@
             //NYI 18 lägg in FileNotFoundException
             //NYI 18 lägg in try-catch
             while (true);
+        }
+        public static void New(string[] argument)
+        {
+            if (argument.Length == 3)
+            {
+                dictionary.Add(new SweEngGloss(argument[1], argument[2]));
+            }
+            else if (argument.Length == 1)
+            {
+                //TODO 8 gör en metod
+                Console.WriteLine("Write word in Swedish: ");
+                string swe = Console.ReadLine();
+                Console.Write("Write word in English: ");
+                string eng = Console.ReadLine();
+                dictionary.Add(new SweEngGloss(swe, eng));
+            }
         }
         public static void List() 
         {
