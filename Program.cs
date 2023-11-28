@@ -53,10 +53,7 @@
                 }
                 else if (command == "list")
                 {
-                    foreach (SweEngGloss gloss in dictionary)
-                    {
-                        Console.WriteLine($"{gloss.word_swe,-10}  - {gloss.word_eng,-10}");
-                    }
+                    List();
                 }
                 else if (command == "new")
                 {
@@ -90,6 +87,13 @@
             //NYI 18 lägg in FileNotFoundException
             //NYI 18 lägg in try-catch
             while (true);
+        }
+        public static void List() 
+        {
+            foreach (SweEngGloss gloss in dictionary) //FIXME dictionary is null
+            {
+                Console.WriteLine($"{gloss.word_swe,-10}  - {gloss.word_eng,-10}");
+            }
         }
         public static void Delete(string[] argument)
         {
