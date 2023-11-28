@@ -17,9 +17,12 @@
                 this.word_swe = words[0]; this.word_eng = words[1];
             }
         }
+
+        static string defaultFile = "..\\..\\..\\dict\\sweeng.lis";
+
         static void Main(string[] args) //FIXME 1 Lägg till commandot "hjälp" så att man kan veta vad man kan fråga efter
-        {
-            string defaultFile = "..\\..\\..\\dict\\sweeng.lis";
+        {            
+            
             Console.WriteLine("Welcome to the dictionary app!");
             do
             {
@@ -32,24 +35,7 @@
                 }
                 else if (command == "load")
                 {
-                    string path = defaultFile;
-                    if (argument.Length == 2)
-                    {
-                        path = argument[1];
-                    }
-                    using (StreamReader sr = new StreamReader(path)) //FIXME: exception error, file not found exception
-                    {
-                        //TODO 4 gör en metod
-                        dictionary = new List<SweEngGloss>(); // Empty it!
-                        string line = sr.ReadLine();
-                        while (line != null)
-                        {
-                            //TODO 5 gör en metod
-                            SweEngGloss gloss = new SweEngGloss(line);
-                            dictionary.Add(gloss);
-                            line = sr.ReadLine();
-                        }
-                    }
+                    Load(argument);
                 }
                 else if (command == "list")
                 {
@@ -75,6 +61,27 @@
             //NYI 18 lägg in FileNotFoundException
             //NYI 18 lägg in try-catch
             while (true);
+        }
+        public static void Load(string[] argument) 
+        {
+            string path = defaultFile;  
+            if (argument.Length == 2)
+            {
+                path = argument[1];
+            }
+            using (StreamReader sr = new StreamReader(path)) //FIXME: exception error, file not found exception
+            {
+                //TODO 4 gör en metod
+                dictionary = new List<SweEngGloss>(); // Empty it!
+                string line = sr.ReadLine();
+                while (line != null)
+                {
+                    //TODO 5 gör en metod
+                    SweEngGloss gloss = new SweEngGloss(line);
+                    dictionary.Add(gloss);
+                    line = sr.ReadLine();
+                }
+            }
         }
         public static void New(string[] argument)
         {
