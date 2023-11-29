@@ -3,7 +3,7 @@
     internal class Program
     {
         //NYI 21 gör en Print() metod
-        static List<SweEngGloss> dictionary;
+        static List<SweEngGloss> dictionary = new List<SweEngGloss>();
         class SweEngGloss
         {
             public string word_swe, word_eng;
@@ -21,8 +21,8 @@
         static string defaultFile = "..\\..\\..\\dict\\sweeng.lis";
 
         static void Main(string[] args) //FIXME 1 Lägg till commandot "hjälp" så att man kan veta vad man kan fråga efter
-        {            
-            
+        {
+
             Console.WriteLine("Welcome to the dictionary app!");
             do
             {
@@ -47,11 +47,11 @@
                 }
                 else if (command == "delete")
                 {
-                    Delete(argument);                    
+                    Delete(argument);
                 }
                 else if (command == "translate")
                 {
-                    Translate(argument);                    
+                    Translate(argument);
                 }
                 else
                 {
@@ -62,9 +62,9 @@
             //NYI 18 lägg in try-catch
             while (true);
         }
-        public static void Load(string[] argument) 
+        public static void Load(string[] argument)
         {
-            string path = defaultFile;  
+            string path = defaultFile;
             if (argument.Length == 2)
             {
                 path = argument[1];
@@ -90,7 +90,7 @@
 
             if (argument.Length == 3)
             {
-                swe = argument[1]; 
+                swe = argument[1];
                 eng = argument[2];
             }
             else if (argument.Length == 1)
@@ -99,11 +99,11 @@
                 Console.WriteLine("Write word in Swedish: ");
                 swe = Console.ReadLine();
                 Console.Write("Write word in English: ");
-                eng = Console.ReadLine();                
+                eng = Console.ReadLine();
             }
             dictionary.Add(new SweEngGloss(swe, eng));
         }
-        public static void List() 
+        public static void List()
         {
             foreach (SweEngGloss gloss in dictionary) //FIXME dictionary is null
             {
@@ -112,43 +112,40 @@
         }
         public static void Delete(string[] argument) // Här går det att faktorera
         {
+            string swe = "";
+            string eng = "";
+            int index = -1;
+            // delete ost cheese
             if (argument.Length == 3)
             {
-                //TODO 12 gör en metod
-                int index = -1;
-                for (int i = 0; i < dictionary.Count; i++) //TODO 11 döp om alla i
-                {
-                    SweEngGloss gloss = dictionary[i];
-                    if (gloss.word_swe == argument[1] && gloss.word_eng == argument[2])
-                        index = i;
-                }
-                dictionary.RemoveAt(index);
+                swe = argument[1];
+                eng = argument[2];
             }
             else if (argument.Length == 1)
             {
-                //TODO 13 gör en metod
                 Console.WriteLine("Write word in Swedish: ");
-                string swe = Console.ReadLine();
+                swe = Console.ReadLine();
                 Console.Write("Write word in English: ");
-                string eng = Console.ReadLine();
-                int index = -1;
-                for (int i = 0; i < dictionary.Count; i++)
-                {
-                    SweEngGloss gloss = dictionary[i];
-                    if (gloss.word_swe == swe && gloss.word_eng == eng)
-                        index = i;
-                }
-                dictionary.RemoveAt(index);
+                eng = Console.ReadLine();
             }
+
+            for (int i = 0; i < dictionary.Count; i++) //TODO 11 döp om alla i
+            {
+                SweEngGloss gloss = dictionary[i];
+                if (gloss.word_swe == swe && gloss.word_eng == eng)
+                    index = i;
+            }
+            dictionary.RemoveAt(index); //FIXME: Exception
+
         }
         public static void Translate(string[] argument)
         {
             string word = "";
-            if (argument.Length == 2) 
+            if (argument.Length == 2)
             {
                 word = argument[1];
             }
-            else if (argument.Length == 1) 
+            else if (argument.Length == 1)
             {
                 Console.WriteLine("Write word to be translated: ");
                 word = Console.ReadLine();
@@ -159,9 +156,9 @@
                     Console.WriteLine($"English for {gloss.word_swe} is {gloss.word_eng}");
                 if (gloss.word_eng == word)
                     Console.WriteLine($"Swedish for {gloss.word_eng} is {gloss.word_swe}");
-            }                    
+            }
         }
-            
-            //TODO 19 lägg till static metoder
+
+        //TODO 19 lägg till static metoder
     } // NYI 20 lägg till static metoder
 }
