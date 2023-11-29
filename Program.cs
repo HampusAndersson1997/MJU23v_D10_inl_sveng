@@ -32,6 +32,7 @@
                 if (command == "quit")
                 {
                     Console.WriteLine("Goodbye!");
+                    break;
                 }
                 else if (command == "help")
                 {
@@ -160,7 +161,8 @@
                 if (gloss.word_swe == swe && gloss.word_eng == eng)
                     index = i;
             }
-            dictionary.RemoveAt(index); //FIXME: Exception
+            dictionary.RemoveAt(index); //FIXME: Exception 
+            
 
         }
         public static void Translate(string[] argument)
