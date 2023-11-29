@@ -28,7 +28,7 @@
             {
                 Console.Write("> "); //TODO 2 gör till en metod
                 string[] argument = Console.ReadLine().Split();
-                string command = argument[0];                
+                string command = argument[0];
                 if (command == "quit")
                 {
                     Console.WriteLine("Goodbye!");
@@ -95,18 +95,24 @@
             {
                 path = argument[1];
             }
-            using (StreamReader sr = new StreamReader(path)) //FIXME: exception error, file not found exception
+            try
             {
-                //TODO 4 gör en metod
-                dictionary = new List<SweEngGloss>(); // Empty it!
-                string line = sr.ReadLine();
-                while (line != null)
+                using (StreamReader sr = new StreamReader(path)) //FIXME: exception error, file not found exception
                 {
-                    //TODO 5 gör en metod
-                    SweEngGloss gloss = new SweEngGloss(line);
-                    dictionary.Add(gloss);
-                    line = sr.ReadLine();
+                    //TODO 4 gör en metod
+                    dictionary = new List<SweEngGloss>(); // Empty it!
+                    string line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        //TODO 5 gör en metod
+                        SweEngGloss gloss = new SweEngGloss(line);
+                        dictionary.Add(gloss);
+                        line = sr.ReadLine();
+                    }
                 }
+            catch (System.FileNotFoundException)
+            {
+                Console.WriteLine("FileNotFoundException");
             }
         }
         public static void New(string[] argument)
