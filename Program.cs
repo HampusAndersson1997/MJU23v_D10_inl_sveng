@@ -28,10 +28,14 @@
             {
                 Console.Write("> "); //TODO 2 gör till en metod
                 string[] argument = Console.ReadLine().Split();
-                string command = argument[0];
+                string command = argument[0];                
                 if (command == "quit")
                 {
                     Console.WriteLine("Goodbye!");
+                }
+                else if (command == "help")
+                {
+                    Help();
                 }
                 else if (command == "load")
                 {
@@ -61,6 +65,27 @@
             //NYI 18 lägg in FileNotFoundException
             //NYI 18 lägg in try-catch
             while (true);
+        }
+        public static void Help()
+        {
+            Console.WriteLine("help - visa hjälpmenyn");
+
+            Console.WriteLine("list - Skriv ut alla ord som finns i befintlig lista");
+
+            Console.WriteLine("new - lägg in en ny glosa");
+            Console.WriteLine("new svensktOrd engelsktOrd");
+
+            Console.WriteLine("quit - avsluta programmet med 'quit'");
+
+            Console.WriteLine("load - ladda en defaultfil");
+            Console.WriteLine("load filnamn");
+
+            Console.WriteLine("delete - ta bort en glosa");
+            Console.WriteLine("delete svensktOrd engelsktOrd");
+
+            Console.WriteLine("translate - slå upp en glosa");
+            Console.WriteLine("translate ord");
+
         }
         public static void Load(string[] argument)
         {
