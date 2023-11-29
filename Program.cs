@@ -161,8 +161,14 @@
                 if (gloss.word_swe == swe && gloss.word_eng == eng)
                     index = i;
             }
-            dictionary.RemoveAt(index); //FIXME: Exception 
-            
+            try
+            {
+                dictionary.RemoveAt(index);
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("ArgumentOutOfRangeException!");
+            }
 
         }
         public static void Translate(string[] argument)
