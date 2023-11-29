@@ -181,7 +181,14 @@
             else if (argument.Length == 1)
             {
                 Console.WriteLine("Write word to be translated: ");
-                word = Console.ReadLine();
+                try
+                {
+                    word = Console.ReadLine();
+                }
+                catch (System.ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine("ArgumentOutOfRangeException!");
+                }
             }
             foreach (SweEngGloss gloss in dictionary)
             {
